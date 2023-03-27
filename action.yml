@@ -4,6 +4,9 @@ inputs:
   package:
     description: 'Path to package.json file'
     required: false
+  jsonpath:
+    description: 'Path to version field in JSON file'
+    required: false
 outputs:
   version:
     description: 'The semantic version of the input file'

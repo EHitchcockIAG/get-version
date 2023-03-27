@@ -1,3 +1,5 @@
+import { SemVer } from 'semver';
+
 enum STATUS_SYMBOLS {
     INFO = '\u24D8',
     SUCCESS = '\u2713',
@@ -24,4 +26,11 @@ function info(...message: any[]) {
     console.log(STATUS_SYMBOLS.INFO, ' ', ...message);
 }
 
-export { error, warn, success, info }
+function printVersion (version: SemVer) {
+    success('Version:', version?.version);
+    success('Major Version:', version?.major);
+    success('Minor Version:', version?.minor);
+    success('Patch Version:', version?.patch);
+}
+
+export { error, warn, success, info, printVersion };
