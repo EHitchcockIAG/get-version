@@ -5865,19 +5865,19 @@ var STATUS_SYMBOLS;
     STATUS_SYMBOLS["ERROR"] = "\u2717";
 })(STATUS_SYMBOLS || (STATUS_SYMBOLS = {}));
 function error(...message) {
-    console.error(STATUS_SYMBOLS.ERROR, ' ', message);
+    console.error(STATUS_SYMBOLS.ERROR, ' ', ...message);
 }
 exports.error = error;
 function warn(...message) {
-    console.warn(STATUS_SYMBOLS.WARNING, ' ', message);
+    console.warn(STATUS_SYMBOLS.WARNING, ' ', ...message);
 }
 exports.warn = warn;
 function success(...message) {
-    console.log('%c', STATUS_SYMBOLS.SUCCESS, ' ', message, 'color: green');
+    console.log('%c', STATUS_SYMBOLS.SUCCESS, ' ', ...message, 'color: green');
 }
 exports.success = success;
 function info(...message) {
-    console.log(STATUS_SYMBOLS.INFO, ' ', message);
+    console.log(STATUS_SYMBOLS.INFO, ' ', ...message);
 }
 exports.info = info;
 
