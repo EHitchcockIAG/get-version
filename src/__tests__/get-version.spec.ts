@@ -1,5 +1,5 @@
 import mockFs from 'mock-fs';
-import getVersion from './get-version';
+import getVersion from '../get-version';
 
 const testVersion = '1.2.3';
 
