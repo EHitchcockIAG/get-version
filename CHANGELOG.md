@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/EHitchcockIAG/get-version/compare/v1.0.5...v1.1.0) (2023-03-27)
+
+
+### Features
+
+* Enable jsonpath parameter to specify a nested version ([#9](https://github.com/EHitchcockIAG/get-version/issues/9)) ([87aa072](https://github.com/EHitchcockIAG/get-version/commit/87aa072be2e2530036efad1b928fe9ea5a32830b))
+
 ## [1.0.5](https://github.com/EHitchcockIAG/get-version/compare/v1.0.4...v1.0.5) (2023-03-27)
 
 
