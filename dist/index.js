@@ -5931,6 +5931,18 @@ function getGithubInput() {
         packagePath: core.getInput('package') || 'package.json'
     };
 }
+function printVersion(version) {
+    logging.success('Version:', version === null || version === void 0 ? void 0 : version.version);
+    logging.success('Major Version:', version === null || version === void 0 ? void 0 : version.major);
+    logging.success('Minor Version:', version === null || version === void 0 ? void 0 : version.minor);
+    logging.success('Patch Version:', version === null || version === void 0 ? void 0 : version.patch);
+}
+function setOutput(version) {
+    core.setOutput('version', version === null || version === void 0 ? void 0 : version.version);
+    core.setOutput('version-major', version === null || version === void 0 ? void 0 : version.major);
+    core.setOutput('version-minor', version === null || version === void 0 ? void 0 : version.minor);
+    core.setOutput('version-patch', version === null || version === void 0 ? void 0 : version.patch);
+}
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const { packagePath } = getGithubInput();
@@ -5939,14 +5951,13 @@ function main() {
             const pkg = (0, path_1.resolve)(packagePath);
             const { version } = require(pkg);
             const parsedVersion = (0, semver_1.parse)(version);
-            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.version);
-            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.major);
-            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.minor);
-            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.patch);
-            core.setOutput('version', parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.version);
-            core.setOutput('version-major', parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.major);
-            core.setOutput('version-minor', parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.minor);
-            core.setOutput('version-patch', parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.patch);
+            if (parsedVersion) {
+                setOutput(parsedVersion);
+                printVersion(parsedVersion);
+            }
+            else {
+                throw new TypeError("Version path was not found in specified directory");
+            }
         }
         catch (e) {
             logging.error("Unable to parse version from ", packagePath);
