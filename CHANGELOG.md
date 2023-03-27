@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/EHitchcockIAG/get-version/compare/v1.0.0...v1.0.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* Update Release major tag ([a3c35d7](https://github.com/EHitchcockIAG/get-version/commit/a3c35d7340c30af2233384c41de6eec13eabf94e))
+
 ## 1.0.0 (2023-03-27)
 
 
