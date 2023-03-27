@@ -19,6 +19,10 @@ async function main () {
         const { version } = require(pkg);
         const parsedVersion = parse(version);
 
+        logging.success(parsedVersion?.version);
+        logging.success(parsedVersion?.major);
+        logging.success(parsedVersion?.minor);
+        logging.success(parsedVersion?.patch);
         core.setOutput('version', parsedVersion?.version);
         core.setOutput('version-major', parsedVersion?.major);
         core.setOutput('version-minor', parsedVersion?.minor);

@@ -5939,6 +5939,10 @@ function main() {
             const pkg = (0, path_1.resolve)(packagePath);
             const { version } = require(pkg);
             const parsedVersion = (0, semver_1.parse)(version);
+            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.version);
+            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.major);
+            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.minor);
+            logging.success(parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.patch);
             core.setOutput('version', parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.version);
             core.setOutput('version-major', parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.major);
             core.setOutput('version-minor', parsedVersion === null || parsedVersion === void 0 ? void 0 : parsedVersion.minor);
