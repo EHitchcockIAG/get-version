@@ -6,7 +6,6 @@ on:
       package:
         description: "package directory relative to root (defaults to package.json)"
         type: string
-  push: {}
 
 jobs:
   Get-Version:
