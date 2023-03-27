@@ -1,0 +1,18 @@
+name: 'Get Version'
+description: 'Github Action to help parse the package version and set github outputs'
+inputs:
+  package:
+    description: 'Path to package.json file'
+    required: false
+outputs:
+  version:
+    description: 'The semantic version of the input file'
+  version-major:
+    description: 'The major of the input file'
+  version-minor:
+    description: 'The minor of the input file'
+  version-patch:
+    description: 'The patch of the input file'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
