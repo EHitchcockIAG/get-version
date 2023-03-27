@@ -40,7 +40,11 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          output: comment, report-markdown
+          test-script: npm run test
+          output: report-markdown
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.coverage.outputs.report }}
 
   build:
     runs-on: ubuntu-latest
