@@ -22,6 +22,7 @@ jobs:
         with:
           release-type: node
           package-name: release-please-action
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
   bump-major:
     name: Update Major Tag
