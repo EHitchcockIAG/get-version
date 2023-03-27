@@ -1,0 +1,7 @@
+dist
+node_modules
+*.ts
+*.js
+*.json
+!src/**/*.ts
+!src/**/*.js

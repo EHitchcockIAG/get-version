@@ -1,0 +1,66 @@
+name: Pull request checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on:
+      - self-hosted
+      - vm:m5.large
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.14.2"
+
+      - run: npm ci
+
+      # Run Lint check
+      - run: npm run lint
+  jest:
+    runs-on:
+      - self-hosted
+      - vm:m5.large
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.14.2"
+
+      - run: npm ci
+
+      # Run unit Tests
+      - uses: ArtiomTr/jest-coverage-report-action@v2.1.2
+        id: coverage
+        with:
+          test-script: npm run test
+          output: report-markdown
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.coverage.outputs.report }}
+  build:
+    runs-on:
+      - self-hosted
+      - vm:m5.large
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.14.2"
+
+      - run: npm ci
+
+      # Make sure MFE builds as smoke test
+      - run: npm run build
