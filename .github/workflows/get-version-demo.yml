@@ -20,6 +20,13 @@ jobs:
       version_minor: ${{ steps.get_version.outputs.minor }}
 
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.14.2'
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
       - name: Get Package Version
         id: get_version
         uses: EHitchcockIAG/get-version@initial-commit
