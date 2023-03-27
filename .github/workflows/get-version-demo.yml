@@ -1,0 +1,27 @@
+name: Get Version Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "package directory relative to root (defaults to package.json)"
+        type: string
+  push: {}
+
+jobs:
+  Get-Version:
+    name: Get Package Version
+    runs-on:
+      - self-hosted
+      - vm:m5.large
+    outputs:
+      version: ${{ steps.get_version.outputs.version-without-v }}
+      version_major: ${{ steps.get_version.outputs.major }}
+      version_minor: ${{ steps.get_version.outputs.minor }}
+
+    steps:
+      - name: Get Package Version
+        id: get_version
+        uses: EHitchcockIAG/get-version@initial-commit
+        with:
+          package: ${{ github.event.inputs.package }}
