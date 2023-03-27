@@ -36,4 +36,4 @@ jobs:
         id: bump-major-tag
         with:
           tag: v${{ env.RELEASE_MAJOR }}
-          force_push_rag: true
+          force_push_tag: true
