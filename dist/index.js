@@ -5864,16 +5864,22 @@ var STATUS_SYMBOLS;
     STATUS_SYMBOLS["WARNING"] = "\u26A0";
     STATUS_SYMBOLS["ERROR"] = "\u2717";
 })(STATUS_SYMBOLS || (STATUS_SYMBOLS = {}));
+var STATUS_COLOURS;
+(function (STATUS_COLOURS) {
+    STATUS_COLOURS["SUCCESS"] = "\u001B[32m";
+    STATUS_COLOURS["WARNING"] = "\u001B[33m";
+    STATUS_COLOURS["ERROR"] = "\u001B[31m";
+})(STATUS_COLOURS || (STATUS_COLOURS = {}));
 function error(...message) {
-    console.error(STATUS_SYMBOLS.ERROR, ' ', ...message);
+    console.error(STATUS_COLOURS.ERROR, STATUS_SYMBOLS.ERROR, ' ', ...message);
 }
 exports.error = error;
 function warn(...message) {
-    console.warn(STATUS_SYMBOLS.WARNING, ' ', ...message);
+    console.warn(STATUS_COLOURS.WARNING, STATUS_SYMBOLS.WARNING, ' ', ...message);
 }
 exports.warn = warn;
 function success(...message) {
-    console.log('\x1b[32m', STATUS_SYMBOLS.SUCCESS, ' ', ...message);
+    console.log(STATUS_COLOURS.SUCCESS, STATUS_SYMBOLS.SUCCESS, ' ', ...message);
 }
 exports.success = success;
 function info(...message) {
