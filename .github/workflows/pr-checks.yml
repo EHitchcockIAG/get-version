@@ -23,6 +23,7 @@ jobs:
 
       # Run Lint check
       - run: npm run lint
+
   jest:
     runs-on: ubuntu-latest
     steps:
@@ -36,14 +37,12 @@ jobs:
       - run: npm ci
 
       # Run unit Tests
-      - uses: ArtiomTr/jest-coverage-report-action@v2.1.2
+      - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
           test-script: npm run test
-          output: report-markdown
-      - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: ${{ steps.coverage.outputs.report }}
+          output: comment, report-markdown
+
   build:
     runs-on: ubuntu-latest
     steps:
