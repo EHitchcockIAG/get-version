@@ -27,15 +27,12 @@ jobs:
     name: Update Major Tag
     runs-on: ubuntu-latest
     needs: release-please
+    if: ${{ needs.release-please.outputs.RELEASE_CREATED }}
     env:
-      RELEASE_CREATED: ${{ needs.release-please.outputs.RELEASE_CREATED }}
       RELEASE_MAJOR: ${{ needs.release-please.outputs.RELEASE_MAJOR }}
     steps:
       - uses: actions/checkout@v3
       - name: Bump Major Tag to latest release
-        if: ${{ steps.release.outputs.release_created }}
-        env:
-          RELEASE_MAJOR: ${{ steps.release.outputs.major }}
         run: |-
           git tag -fa "v$RELEASE_MAJOR" -m "Update v1 tag"
           git push origin "v$RELEASE_MAJOR" --force
