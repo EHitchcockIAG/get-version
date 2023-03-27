@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "16.14.2"
 
-      - run: npm ci
+      - run: npm ci --omit=dev --ignore-scripts
 
       # Run Lint check
       - run: npm run lint
@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: "16.14.2"
 
-      - run: npm ci
+      - run: npm ci --omit=dev --ignore-scripts
 
       # Run unit Tests
       - uses: ArtiomTr/jest-coverage-report-action@v2.1.2
@@ -54,7 +54,7 @@ jobs:
         with:
           node-version: "16.14.2"
 
-      - run: npm ci
+      - run: npm ci --omit=dev --ignore-scripts
 
       # Make sure MFE builds as smoke test
       - run: npm run build
