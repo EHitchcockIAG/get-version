@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/EHitchcockIAG/get-version/compare/v1.0.4...v1.0.5) (2023-03-27)
+
+
+### Bug Fixes
+
+* update logging formatting ([b32c43d](https://github.com/EHitchcockIAG/get-version/commit/b32c43dcbd2653a813f5cbed7a7e0592a3afe241))
+
 ## [1.0.4](https://github.com/EHitchcockIAG/get-version/compare/v1.0.3...v1.0.4) (2023-03-27)
 
 
