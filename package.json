@@ -1,6 +1,6 @@
 {
   "name": "get-version",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Github Action to help parse the package version and set github outputs",
   "main": "index.js",
   "scripts": {
