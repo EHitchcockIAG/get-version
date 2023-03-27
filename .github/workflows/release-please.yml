@@ -14,6 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
           release-type: node
           package-name: release-please-action
+
+      - name: Bump Major Tag to latest release
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          RELEASE_MAJOR: ${{ steps.release.outputs.major }}
+        run: |-
+          git tag -fa "v$RELEASE_MAJOR" -m "Update v1 tag"
+          git push origin "v$RELEASE_MAJOR" --force
