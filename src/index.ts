@@ -11,7 +11,7 @@ function getGithubInput () {
 
 async function main () {
     const { packagePath } = getGithubInput();
-    logging.info('Using ', packagePath, ' as package directory');
+    logging.info('Using', packagePath, 'as package directory');
 
 
     try {

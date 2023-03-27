@@ -5873,7 +5873,7 @@ function warn(...message) {
 }
 exports.warn = warn;
 function success(...message) {
-    console.log('%c', STATUS_SYMBOLS.SUCCESS, ' ', ...message, 'color: green');
+    console.log('\x1b[32m', STATUS_SYMBOLS.SUCCESS, ' ', ...message);
 }
 exports.success = success;
 function info(...message) {
@@ -5934,7 +5934,7 @@ function getGithubInput() {
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const { packagePath } = getGithubInput();
-        logging.info('Using ', packagePath, ' as package directory');
+        logging.info('Using', packagePath, 'as package directory');
         try {
             const pkg = (0, path_1.resolve)(packagePath);
             const { version } = require(pkg);

@@ -12,7 +12,7 @@ function warn(...message: any[]) {
     console.warn(STATUS_SYMBOLS.WARNING, ' ', ...message)
 }
 function success(...message: any[]) {
-    console.log('%c', STATUS_SYMBOLS.SUCCESS, ' ', ...message, 'color: green');
+    console.log('\x1b[32m', STATUS_SYMBOLS.SUCCESS, ' ', ...message);
 }
 function info(...message: any[]) {
     console.log(STATUS_SYMBOLS.INFO, ' ', ...message);
