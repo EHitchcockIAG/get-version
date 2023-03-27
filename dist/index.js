@@ -5947,20 +5947,27 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const { packagePath } = getGithubInput();
         logging.info('Using', packagePath, 'as package directory');
+        let parsedVersion;
         try {
             const pkg = (0, path_1.resolve)(packagePath);
             const { version } = require(pkg);
-            const parsedVersion = (0, semver_1.parse)(version);
+            parsedVersion = (0, semver_1.parse)(version);
+        }
+        catch (e) {
+            logging.error('Unable to parse version from', packagePath);
+            throw Error(e);
+        }
+        try {
             if (parsedVersion) {
                 setOutput(parsedVersion);
                 printVersion(parsedVersion);
             }
             else {
-                throw new TypeError("Version path was not found in specified directory");
+                throw new TypeError('Version path was not found in specified directory');
             }
         }
         catch (e) {
-            logging.error("Unable to parse version from ", packagePath);
+            logging.error('Version is not in semantic format');
             throw Error(e);
         }
     });
