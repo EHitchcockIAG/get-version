@@ -22,7 +22,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "lodash": "^4.17.21",
-    "semver": "^7.3.8"
+    "semver": "^7.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
